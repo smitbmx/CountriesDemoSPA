@@ -1,0 +1,68 @@
+﻿<html ng-app="countryApp">
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+    <script>
+        var countryApp = angular.module('countryApp', ['ngRoute']);
+
+        countryApp.config(function ($routeProvider) {
+            $routeProvider.
+              when('/', {
+                  templateUrl: 'country-list.html',
+                  controller: 'CountryListCtrl'
+              }).
+              when('/:countryName', {
+                  templateUrl: 'country-detail.html',
+                  controller: 'CountryDetailCtrl'
+              }).
+              otherwise({
+                  redirectTo: '/'
+              });
+        });
+
+        countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams) {
+            $scope.name = $routeParams.countryName;
+        });
+
+        countryApp.controller('CountryListCtrl', function ($scope) {
+
+            $scope.add = function () {
+                var country = { name: $scope.enteredName, population: $scope.enteredPopulation, capital: $scope.enteredCapitalCity, flagURL: "someurl" };
+                $scope.countries.push(country);
+            };
+
+            $scope.countries = [
+                {
+                    "name": "China",
+                    "population": 1359821000,
+                    "flagURL": "//upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg",
+                    "capital": "Beijing"
+                },
+                {
+                    "name": "India",
+                    "population": 1205625000,
+                    "flagURL": "//upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
+                    "capital": "New Delhi"
+                },
+                {
+                    "name": "United States of America",
+                    "population": 312247000,
+                    "flagURL": "//upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+                    "capital": "Washington, D.C."
+                },
+                {
+                    "name": "Ukraine",
+                    "population": 44291413,
+                    "flagURL": "//upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg",
+                    "capital": "Kiev"
+                }
+            ];
+        });
+    </script>
+</head>
+<body>
+    <div ng-view></div>
+</body>
+</html>

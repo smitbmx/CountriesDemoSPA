@@ -1,0 +1,47 @@
+﻿<div>
+        Search:
+        <input type="text" ng-model="query" />
+        <table>
+            <tr>
+                <th>Country</th>
+                <th>Capital City</th>
+                <th>Population</th>
+                <th>Flag</th>
+            </tr>
+            <tr ng-repeat="country in countries | filter:query | orderBy: -country.population">
+                <td><a href="#/{{country.name}}">{{country.name}}</a></td>
+                <td>{{country.capital}}</td>
+                <td>{{country.population}}</td>
+                <td>
+                    <img ng-src="{{country.flagURL}}" width="50">
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <form ng-submit="add()">
+                <table>
+                    <tr>
+                        <td>Country name:</td>
+                        <td>
+                            <input type="text" ng-model="enteredName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Capital city:</td>
+                        <td>
+                            <input type="text" ng-model="enteredCapitalCity" /></td>
+                    </tr>
+                    <tr>
+                        <td>Population:</td>
+                        <td>
+                            <input type="text" ng-model="enteredPopulation" /></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Add new country" /></td>
+                    </tr>
+                </table>
+            </form>
+        </p>
+    </div>
