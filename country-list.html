@@ -8,7 +8,7 @@
                 <th>Population</th>
                 <th>Flag</th>
             </tr>
-            <tr ng-repeat="country in countries | filter:query | orderBy: -country.population">
+            <tr ng-repeat="country in countries | filter:query | orderBy: 'population'">
                 <td><a href="#/{{country.name}}">{{country.name}}</a></td>
                 <td>{{country.capital}}</td>
                 <td>{{country.population}}</td>
