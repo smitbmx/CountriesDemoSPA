@@ -6,14 +6,15 @@
     <script>
         var countryApp = angular.module('countryApp', []);
         countryApp.controller('CountriesCtrl', function ($scope) {
-            $scope.countries = ['China', 'Ukraine', 'India'];
+            $scope.countries = ['Ukraine', 'China', 'India'];
         });
     </script>
 </head>
-    <body ng-controller="CountriesCtrl">
-        Search: <input type="text" ng-model="search"/>
-        <ul>
-            <li ng-repeat="country in countries | filter:search">{{country}}</li>
-        </ul>
-    </body>
+<body ng-controller="CountriesCtrl">
+    Search:
+    <input type="text" ng-model="search" />
+    <ul>
+        <li ng-repeat="country in countries | orderBy:'toString()' | filter:search" >{{country | uppercase}}</li>
+    </ul>
+</body>
 </html>
