@@ -1,0 +1,19 @@
+﻿<html ng-app="countryApp">
+<head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="../Content/Scripts/angular.min.js"></script>
+    <script>
+        var countryApp = angular.module('countryApp', []);
+        countryApp.controller('CountriesCtrl', function ($scope) {
+            $scope.countries = ['China', 'Ukraine', 'India'];
+        });
+    </script>
+</head>
+    <body ng-controller="CountriesCtrl">
+        Search: <input type="text" ng-model="countriess"/>
+        <ul>
+            <li ng-repeat="country in countries | filter:countriess:strict">{{country}}</li>
+        </ul>
+    </body>
+</html>
