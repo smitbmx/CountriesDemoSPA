@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Countries app" errors="0" tests="4" failures="0" time="10.008" timestamp="2014-10-13T10:32:47">
+  <testcase classname="Countries app" name="should have a title" time="4.07"></testcase>
+  <testcase classname="Countries app" name="should have a possibility to add a new country" time="2.316"></testcase>
+  <testcase classname="Countries app" name="should search country by name" time="1.465"></testcase>
+  <testcase classname="Countries app" name="should have a possibility to add a new country with a Page Object" time="2.152"></testcase>
+</testsuite>
+</testsuites>
